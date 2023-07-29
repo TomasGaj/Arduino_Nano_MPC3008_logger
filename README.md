@@ -13,7 +13,7 @@ Arduino Nano is reading data over SPI from MCP300 (10-bit ADC),
 Nano adds to the data the time step from Timer1 and it all is SENT to PC with
 maximum possible speed.
 
-The structure of the data is:
+The structure of the data:
 
   The first two nibbles are time-step from the lower byte of Timer1.
   (code can be simply enhanced to read and send the complete Timer1 register)
