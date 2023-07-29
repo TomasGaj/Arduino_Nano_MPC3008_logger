@@ -5,10 +5,6 @@ extern "C"
 {
   void init_serial();
   void print_msg();
-  void print_msg_2();  
-  void print_msg_3();
-  void print_msg_4();
-  void print_msg_5();
 }
 
     FastMCP3008 adc;
