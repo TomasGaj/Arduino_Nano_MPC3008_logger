@@ -8,7 +8,7 @@ extern "C"
 }
 
     FastMCP3008 adc;
-    unsigned int  i, a, b;
+    unsigned int  a;
     byte channelMask0;
 
 
