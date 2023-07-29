@@ -40,3 +40,7 @@ after uploading into Nano, you'll see continuous data.
 
 I think it's due to the buffer overflow in the Atmega chip replacing FTDI,
 maybe they already fix it in new versions, I did not investigate it.
+
+  ![blocks](pics/signal_from_UNO.png)
+
+  ![blocks](pics/signal_from_nano.png)
