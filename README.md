@@ -22,7 +22,7 @@ The structure of the data:
 
   And on the end of the message are placed carriage return and new line characters.
 
-  ![blocks](pics/Nano_reading.PNG)
+  ![blocks](pics/Nano_reading.png)
 
 ## This code is following two main sources:
 
