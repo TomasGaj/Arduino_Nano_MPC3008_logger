@@ -10,12 +10,12 @@ of my project of Arduino optical vibrometer:
 https://github.com/TomasGaj/Arduino_vibrometer/  
 
 Arduino Nano is reading data over SPI from MCP300 (10-bit ADC),
-Nano adds to the data the time step from Timer1 and it all is SENT to PC with
+Nano adds to the data the time stamp from Timer1 and it all is SENT to PC with
 maximum possible speed.
 
 The structure of the data:
 
-  The first two nibbles are time-step from the lower byte of Timer1.
+  The first two nibbles are time-stamp from the lower byte of Timer1.
   (code can be simply enhanced to read and send the complete Timer1 register)
 
   The next three nibbles are ADC data.
@@ -38,9 +38,17 @@ It's due to its FTDI chip, the figures below are self-explanatory.
 After uploading the code into UNO, you see missing data as in the figure below,
 after uploading into Nano, you'll see continuous data.
 
+When I saw it for the first time I though it's coming from the some interruption
+running in the background, for exampe from micros(), so I moved to the C.
+Problem remained and then I've found this thread, I think it is this issue:
+
+[https://forum.arduino.cc/t/uno-atmega16u2-maximum-serial-throughput/893662](https://forum.arduino.cc/t/uno-atmega16u2-maximum-serial-throughput/893662)
+
 I think it's due to the buffer overflow in the Atmega chip replacing FTDI,
 maybe they already fix it in new versions, I did not investigate it.
 
-  ![blocks](pics/signal_from_UNO.png)
+ ![blocks](pics/signal_from_nano.png)
 
-  ![blocks](pics/signal_from_nano.png)
+ ![blocks](pics/signal_from_UNO.png)
+
+ 
