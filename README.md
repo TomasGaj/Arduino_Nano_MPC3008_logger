@@ -16,7 +16,6 @@ maximum possible speed.
 The structure of the data:
 
   The first two nibbles are time-stamp from the lower byte of Timer1.
-  (code can be simply enhanced to read and send the complete Timer1 register)
 
   The next three nibbles are ADC data.
 
