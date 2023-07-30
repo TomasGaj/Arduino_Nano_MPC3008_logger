@@ -10,7 +10,7 @@ of my project of Arduino optical vibrometer:
 https://github.com/TomasGaj/Arduino_vibrometer/  
 
 Arduino Nano is reading data over SPI from MCP300 (10-bit ADC),
-Nano adds to the data the time stamp from Timer1 and it all is SENT to PC with
+Nano adds to the data the time stamp from Timer1 and it is all SENT to PC with
 maximum possible speed.
 
 The structure of the data:
