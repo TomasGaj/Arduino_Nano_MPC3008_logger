@@ -1,17 +1,21 @@
 # Arduino_Nano_MPC3008_logger
-uses Nano and MCP3008 to send data to the PC as fast as possible
+uses **MCP3008** and **continuously sends data to PC at a speed around 14350 Samples/sec** 
 
+(timestamp included ;-)
+
+![blocks](pics/nano_breadboard_bsp05u.png)
 
 ## General Introduction
 
-This code is the first step to the next generation 
-of my project of Arduino optical vibrometer:
+This code is part of the next generation of Arduino optical vibrometer:
 
 https://github.com/TomasGaj/Arduino_vibrometer/  
 
 Arduino Nano is reading data over SPI from MCP300 (10-bit ADC),
-Nano adds to the data the time stamp from Timer1 and it is all SENT to PC with
-maximum possible speed.
+Nano adds to the data the time stamp from Timer1 and it is all sent to PC with
+speed of 69-70us each sample (1 sample = timestamp plus 10-bit value).
+
+**Update 12.8.2023: It looks to me that no CRC is needed. I continue testing.**
 
 The structure of the data:
 
@@ -37,17 +41,20 @@ It's due to its FTDI chip, the figures below are self-explanatory.
 After uploading the code into UNO, you see missing data as in the figure below,
 after uploading into Nano, you'll see continuous data.
 
-When I saw it for the first time I though it's coming from the some interruption
-running in the background, for exampe from micros(), so I moved to the C.
-Problem remained and then I've found this thread, I think it is this issue:
+When I saw it for the first time I thought it was coming from some interruption
+running in the background, for example from micros(), so I moved to the C.
+It was quite long for any interruption, but I had no other idea.
+The problem remained and then I found this thread, I think they are talking about this issue:
 
 [https://forum.arduino.cc/t/uno-atmega16u2-maximum-serial-throughput/893662](https://forum.arduino.cc/t/uno-atmega16u2-maximum-serial-throughput/893662)
 
 I think it's due to the buffer overflow in the Atmega chip replacing FTDI,
 maybe they already fix it in new versions, I did not investigate it.
 
+**Update 12.8.2023: I plan to test the original Arduino MEGA 2560 bought at Farnell at the beginning of this year.**
+
  ![blocks](pics/signal_from_nano.png)
 
  ![blocks](pics/signal_from_UNO.png)
 
- 
+
