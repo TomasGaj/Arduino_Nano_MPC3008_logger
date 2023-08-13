@@ -1,5 +1,5 @@
 # Arduino_Nano_MPC3008_logger
-uses **MCP3008** and **continuously sends data to PC at a speed around 14350 Samples/sec** 
+uses **MCP3008** and **continuously sends data to PC at a speed ~14350 Samples/sec** 
 
 (timestamp included ;-)
 
@@ -17,7 +17,7 @@ speed of 69-70us each sample (1 sample = timestamp plus 10-bit value).
 
 **Update 12.8.2023: It looks to me that no CRC is needed. I continue testing.**
 ```
-How to connect Arduino Nano board and the MCP3008
+How to connect Arduino Nano board and the MCP3008 (using native SPI)
 
 MCP3008   Arduino Nano
 
@@ -59,8 +59,8 @@ DGND      GND
 
 ## About the bug, why the code runs only on Arduino Nano
 
-It's due to its FTDI chip, the figures below are self-explanatory.
-After uploading the code into UNO, you see missing data as in the figure below,
+It must be due to its FTDI chip, the figures below are self-explanatory.
+After uploading the code into UNO, you'll see missing data as in the figure below,
 after uploading into Nano, you'll see continuous data.
 
 When I saw it for the first time I thought it was coming from some interruption
